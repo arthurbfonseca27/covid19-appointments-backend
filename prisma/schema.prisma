@@ -14,15 +14,15 @@ datasource db {
 }
 
 // criar uma migration: npm prisma migrate dev
-model Agendamento {
-  id                 String    @id @default(uuid())
-  nome               String
-  sobrenome          String
-  dataNascimento     DateTime? @default(now())
-  dataAgendamento    DateTime? @default(now())
-  horarioAgendamento String
-  status             Boolean
+model Appointment {
+  id                String    @id @default(uuid())
+  name              String
+  surname           String
+  dateOfBirth       DateTime? @default(now())
+  appointmentDate   DateTime? @default(now())
+  appointmentTime   String
+  appointmentStatus Boolean
 
-  @@index([dataAgendamento, horarioAgendamento])
-  @@map("agendamentos")
+  @@index([appointmentDate, appointmentTime])
+  @@map("appointments")
 }

@@ -1,21 +1,21 @@
 import { Request, Response } from "express";
-import { ListAvailableTimesService } from "../../services/horariosDisponiveis/ListAvailableTimesService";
+import { ListAvailableTimesService } from "../../services/availableTimesService/ListAvailableTimesService";
 
 class ListAvailableTimesController {
   async handle(req: Request, res: Response) {
-    const { dataAgendamento } = req.query;
+    const { appointmentDate } = req.query;
 
     try {
-      if (!dataAgendamento) {
-        throw new Error("Parâmetro dataAgendamento não fornecido");
+      if (!appointmentDate) {
+        throw new Error("Parâmetro appointmentDate não fornecido");
       }
 
       const service = new ListAvailableTimesService();
-      const horariosDisponiveis = await service.execute(
-        new Date(dataAgendamento as string)
+      const availableTimes = await service.execute(
+        new Date(appointmentDate as string)
       );
 
-      res.status(200).json(horariosDisponiveis);
+      res.status(200).json(availableTimes);
     } catch (error) {
       console.error("Erro ao buscar horários disponíveis:", error);
       res.status(500).json({ error: "Erro ao buscar horários disponíveis" });

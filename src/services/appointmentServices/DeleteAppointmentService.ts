@@ -6,8 +6,8 @@ interface DeleteAppointmentRequest {
 
 class DeleteAppointmentService {
   async execute({ id }: DeleteAppointmentRequest) {
-    // Verificar se o agendamento existe
-    const appointment = await prismaClient.agendamento.findUnique({
+ 
+    const appointment = await prismaClient.appointment.findUnique({
       where: { id },
     });
 
@@ -15,8 +15,8 @@ class DeleteAppointmentService {
       throw new Error("Agendamento não encontrado");
     }
 
-    // Deletar o agendamento
-    await prismaClient.agendamento.delete({
+    
+    await prismaClient.appointment.delete({
       where: { id },
     });
 

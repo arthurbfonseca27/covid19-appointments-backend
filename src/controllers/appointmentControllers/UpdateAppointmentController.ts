@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
-import { UpdateAppointmentService } from "../../services/agendamento/UpdateAppointmentService";
+import { UpdateAppointmentService } from "../../services/appointmentServices/UpdateAppointmentService";
 
 class UpdateAppointmentController {
   async handle(req: Request, res: Response) {
     try {
       const { id } = req.params; // Pegando o ID dos parâmetros da rota
       const {
-        nome,
-        sobrenome,
-        dataNascimento,
-        dataAgendamento,
-        horarioAgendamento,
-        status,
+        name,
+        surname,
+        dateOfBirth,
+        appointmentDate,
+        appointmentTime,
+        appointmentStatus,
       } = req.body;
 
       if (!id) {
@@ -22,12 +22,12 @@ class UpdateAppointmentController {
 
       const updatedAppointment = await updateAppointmentService.execute({
         id,
-        nome,
-        sobrenome,
-        dataNascimento,
-        dataAgendamento,
-        horarioAgendamento,
-        status,
+        name,
+        surname,
+        dateOfBirth,
+        appointmentDate,
+        appointmentTime,
+        appointmentStatus,
       });
 
       return res.json(updatedAppointment);

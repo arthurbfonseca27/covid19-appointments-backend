@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { ListAppointmentController } from "./controllers/agendamento/ListAppointmentController";
-import { CreateAppointmentController } from "./controllers/agendamento/CreateAppointmentController";
-import { ListAvailableTimesController } from "./controllers/horariosDisponiveis/ListAvailableTimesController";
-import { UpdateAppointmentController } from "./controllers/agendamento/UpdateAppointmentController";
-import { DeleteAppointmentController } from "./controllers/agendamento/DeleteAppointmentController";
+import { ListAppointmentController } from "./controllers/appointmentControllers/ListAppointmentController";
+import { CreateAppointmentController } from "./controllers/appointmentControllers/CreateAppointmentController";
+import { ListAvailableTimesController } from "./controllers/availableTimesController/ListAvailableTimesController";
+import { UpdateAppointmentController } from "./controllers/appointmentControllers/UpdateAppointmentController";
+import { DeleteAppointmentController } from "./controllers/appointmentControllers/DeleteAppointmentController";
 
 const router = Router();
 

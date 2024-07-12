@@ -2,9 +2,9 @@ import prismaClient from "../../prisma";
 
 class ListAppointmentService {
   async execute() {
-    const agendamento = await prismaClient.agendamento.findMany();
+    const appointment = await prismaClient.appointment.findMany();
 
-    return agendamento;
+    return appointment;
   }
 }
 
